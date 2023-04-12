@@ -1,1 +1,32 @@
-<p>criar-produto works!</p>
+<div class="row">
+  <div class="col-12 mt-2">
+    <h3>Criar novo produto</h3>
+    <form>
+      <div class="mt-4 mb-4">
+        <div class="col">
+          <label>Nome do Produto</label>
+          <input
+            type="text"
+            class="form-control"
+            name="inputNovoProduto"
+            [(ngModel)]="novoProduto"
+          />
+        </div>
+        <div class="col mt-3">
+          <label>Descrição do Produto</label>
+          <input
+            type="text"
+            class="form-control"
+            name="inputDetalhesDoProduto"
+            [(ngModel)]="descricaoNovoProduto"
+          />
+        </div>
+      </div>
+    </form>
+    <br />
+
+    <button class="btn btn-primary" (click)="criarProduto()">
+      Criar produto
+    </button>
+  </div>
+</div>
