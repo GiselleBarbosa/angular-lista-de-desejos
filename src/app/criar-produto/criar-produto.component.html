@@ -1,32 +1,31 @@
 <div class="row">
-  <div class="col-12 mt-2">
+  <div class="col-12 mt-2 d-flex flex-column">
     <h3>Criar novo produto</h3>
     <form>
       <div class="mt-4 mb-4">
-        <div class="col">
-          <label>Nome do Produto</label>
+        <label>Nome do Produto</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          name="inputNovoProduto"
+          [(ngModel)]="novoProduto"
+        />
+
+        <div class="mt-3">
+          <label>Preço</label>
           <input
-            type="text"
-            class="form-control"
-            name="inputNovoProduto"
-            [(ngModel)]="novoProduto"
-          />
-        </div>
-        <div class="col mt-3">
-          <label>Descrição do Produto</label>
-          <input
-            type="text"
+            required
+            type="number"
             class="form-control"
             name="inputDetalhesDoProduto"
-            [(ngModel)]="descricaoNovoProduto"
+            [(ngModel)]="precoNovoProduto"
           />
         </div>
       </div>
+      <button class="btn btn-primary" (click)="criarProduto()">
+        Criar produto
+      </button>
     </form>
-    <br />
-
-    <button class="btn btn-primary" (click)="criarProduto()">
-      Criar produto
-    </button>
   </div>
 </div>

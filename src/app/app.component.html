@@ -1,13 +1,20 @@
 <div class="container mt-5">
-  <app-criar-produto (produtoCriado)="recebeProduto($event)"></app-criar-produto>
-  <hr />
-  <div class="row">
-    <div class="col-12">
+  <ng-container>
+    <app-criar-produto (produtoCriado)="produtoCriado($event)" />
+    <hr />
+  </ng-container>
 
-      <h4>Detalhes do produto</h4>
-      <hr />
-      <app-detalhe-produto [produto]="produto" *ngFor="let produto of produtos">
-      </app-detalhe-produto>
+  <ng-container *ngIf="produtos.length > 0">
+    <div class="row">
+      <div class="col-12">
+        <h4>Detalhes do produto</h4>
+        <hr />
+
+        <app-detalhe-produto
+          [produto]="produto"
+          *ngFor="let produto of produtos"
+        />
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>

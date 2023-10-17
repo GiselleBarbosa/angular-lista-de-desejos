@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 interface Produtos {
   nome: string;
-  descricao: string;
+  preco: number;
 }
 
 @Component({
@@ -11,19 +11,24 @@ interface Produtos {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  produtos: Produtos[] = [];
+  public produtos: Produtos[] = [];
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    // recuperando lista de localstorage
 
-  recebeProduto(produto: Produtos) {
-   this.produtos.push({
-      nome: produto.nome,
-      descricao: produto.descricao,
-    });
-    const products = JSON.stringify(this.produtos);
-    localStorage.setItem('products', products);
+    const productsSaved = localStorage.getItem('products');
 
+    if (productsSaved) this.produtos = JSON.parse(productsSaved);
   }
 
+  public produtoCriado(produto: Produtos) {
+    this.produtos.push({
+      nome: produto.nome,
+      preco: produto.preco,
+    });
 
+    // salvando lista em localstorage
+    const products = JSON.stringify(this.produtos);
+    localStorage.setItem('products', products);
+  }
 }

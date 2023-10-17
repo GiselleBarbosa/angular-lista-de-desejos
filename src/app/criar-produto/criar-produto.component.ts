@@ -1,24 +1,23 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-criar-produto',
   templateUrl: './criar-produto.component.html',
-  styleUrls: ['./criar-produto.component.scss']
+  styleUrls: ['./criar-produto.component.scss'],
 })
-export class CriarProdutoComponent implements OnInit {
-  @Output() produtoCriado = new EventEmitter<{ nome: string, descricao: string }>();
-  novoProduto = "";
-  descricaoNovoProduto = "";
+export class CriarProdutoComponent {
+  @Output() public produtoCriado = new EventEmitter<{
+    nome: string;
+    preco: number;
+  }>();
 
-  constructor() {
-  }
+  novoProduto!: string;
+  precoNovoProduto!: number;
 
-  criarProduto() {
+  public criarProduto() {
     this.produtoCriado.emit({
       nome: this.novoProduto,
-      descricao: this.descricaoNovoProduto
-    })
+      preco: this.precoNovoProduto,
+    });
   }
-
-  ngOnInit(): void { }
 }
