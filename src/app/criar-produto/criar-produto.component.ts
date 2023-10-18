@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
     <div class="row">
       <div class="col-12 mt-2 d-flex flex-column">
         <form>
-          <div class="mt-4 mb-4">
+          <div class="mt-4 mb-4 ">
             <label>Nome do Produto</label>
             <input
               required
@@ -14,7 +14,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
               class="form-control"
               name="inputNovoProduto"
               placeholder="Digite o nome do produto"
-              [(ngModel)]="novoProduto"
+              [(ngModel)]="produto"
             />
 
             <div class="mt-3">
@@ -25,7 +25,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
                 placeholder="Digite o preço"
                 class="form-control"
                 name="inputDetalhesDoProduto"
-                [(ngModel)]="precoNovoProduto"
+                [(ngModel)]="preco"
               />
             </div>
           </div>
@@ -43,13 +43,15 @@ export class CriarProdutoComponent {
     preco: number;
   }>();
 
-  novoProduto!: string;
-  precoNovoProduto!: number;
+  produto!: string;
+  preco!: number;
 
   public criarProduto() {
-    this.produtoCriado.emit({
-      nome: this.novoProduto,
-      preco: this.precoNovoProduto,
-    });
+    if (this.produto !== null && this.preco !== null) {
+      this.produtoCriado.emit({
+        nome: this.produto,
+        preco: this.preco,
+      });
+    }
   }
 }

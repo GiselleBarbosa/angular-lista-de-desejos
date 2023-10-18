@@ -19,12 +19,13 @@ import { Produtos } from './shared/productos.interface';
             <h4>🎁 Produtos salvos</h4>
             <hr />
 
-            <div class="col-6">
-              <app-detalhe-produto
-                (removerProduto)="removerProduto(produto)"
-                [produto]="produto"
-                *ngFor="let produto of produtos"
-              />
+            <div class="container-fluid">
+              <ng-container *ngFor="let produto of produtos; let i = index">
+                <app-detalhe-produto
+                  (removerProduto)="removerProduto(i)"
+                  [produto]="produto"
+                />
+              </ng-container>
             </div>
           </div>
         </div>
@@ -37,7 +38,6 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     // recuperando lista de localstorage
-
     const productsSaved = localStorage.getItem('products');
 
     if (productsSaved) this.produtos = JSON.parse(productsSaved);
@@ -54,9 +54,14 @@ export class AppComponent implements OnInit {
     location.reload();
   }
 
-  removerProduto(produto: Produtos): void {
-    this.produtos.shift();
-    const products = JSON.stringify(this.produtos);
-    localStorage.setItem('products', products);
+  removerProduto(index: number): void {
+    if (index >= 0 && index < this.produtos.length) {
+      this.produtos.splice(index, 1);
+      console.log(this.produtos);
+      const listaProdutosAtualizada = JSON.stringify(this.produtos);
+      
+      localStorage.setItem('products', listaProdutosAtualizada);
+      console.log('removeu', index);
+    }
   }
 }
