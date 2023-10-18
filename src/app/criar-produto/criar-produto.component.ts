@@ -1,11 +1,17 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-criar-produto',
   template: `
     <div class="row">
       <div class="col-12 mt-2 d-flex flex-column">
-        <form>
+        <form
+          #productsForm="ngForm"
+          (ngSubmit)="criarProduto(productsForm)"
+          class="needs-validation"
+          novalidate
+        >
           <div class="mt-4 mb-4 ">
             <label>Nome do Produto</label>
             <input
@@ -16,6 +22,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
               placeholder="Digite o nome do produto"
               [(ngModel)]="produto"
             />
+            <div class="valid-tooltip">verifique os campos</div>
 
             <div class="mt-3">
               <label>Preço</label>
@@ -29,7 +36,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
               />
             </div>
           </div>
-          <button class="btn btn-primary btn-sm" (click)="criarProduto()">
+          <button class="btn btn-primary btn-sm" type="submit">
             Salvar produto
           </button>
         </form>
@@ -43,15 +50,24 @@ export class CriarProdutoComponent {
     preco: number;
   }>();
 
-  produto!: string;
-  preco!: number;
+  public produto!: string;
+  public preco!: number;
 
-  public criarProduto() {
-    if (this.produto !== null && this.preco !== null) {
+  public validaCampos(): boolean {
+    if (this.produto && this.preco !== null && undefined) {
+      return true;
+    }
+    return false;
+  }
+
+  public criarProduto(form: NgForm) {
+    if (form.valid) {
       this.produtoCriado.emit({
         nome: this.produto,
         preco: this.preco,
       });
+    } else {
+      alert('Verifique os campos');
     }
   }
 }

@@ -9,10 +9,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         {{ produto.nome }}
       </div>
       <div
-        class="card-text d-flex flex-row justify-content-between align-items-center p-2"
+        class="card-text d-flex flex-row justify-content-between align-content-center align-items-center p-2"
       >
         <div>
-          <p>{{ produto.preco | currency : 'BRL' }}</p>
+          <p class="mb-0">{{ produto.preco | currency : 'BRL' }}</p>
         </div>
         <div>
           <button
