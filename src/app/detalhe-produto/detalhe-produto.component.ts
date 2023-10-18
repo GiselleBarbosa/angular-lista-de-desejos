@@ -3,9 +3,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-detalhe-produto',
   template: `
-    <div class="card mb-2">
+    <div class="card mb-3">
       <div class="card-header">
-        <input class="mr-2" type="checkbox" />
+        <input
+          class="mr-2"
+          type="checkbox"
+          [(ngModel)]="produto.comprado"
+          (click)="marcarProdutoComoComprado()"
+        />
         {{ produto.nome }}
       </div>
       <div
@@ -38,11 +43,23 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
 })
 export class DetalheProdutoComponent {
-  @Input() public produto!: { nome: string; preco: number };
+  @Input() public produto!: {
+    nome: string;
+    preco: number;
+    comprado?: boolean;
+  };
 
-  @Output() removerProduto = new EventEmitter();
+  @Input() public comprado = false;
+
+  @Output() public removerProduto = new EventEmitter();
+
+  @Output() public concluido = new EventEmitter<boolean>();
 
   public removerProdutoEvento() {
     this.removerProduto.emit();
+  }
+
+  public marcarProdutoComoComprado() {
+    this.concluido.emit(this.comprado);
   }
 }

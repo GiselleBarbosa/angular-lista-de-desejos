@@ -6,7 +6,7 @@ import { Produtos } from './shared/productos.interface';
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
       <ng-container>
         <h3>❤️ Lista de Desejos</h3>
         <app-criar-produto (produtoCriado)="CriarProduto($event)" />
@@ -24,6 +24,7 @@ import { Produtos } from './shared/productos.interface';
                 <app-detalhe-produto
                   (removerProduto)="removerProduto(i)"
                   [produto]="produto"
+                  (concluido)="marcarProdutoComoComprado(i)"
                 />
               </ng-container>
             </div>
@@ -36,6 +37,8 @@ import { Produtos } from './shared/productos.interface';
 export class AppComponent implements OnInit {
   public produtos: Produtos[] = [];
 
+  public comprado = false;
+
   public ngOnInit(): void {
     // recuperando lista de localstorage
     const productsSaved = localStorage.getItem('products');
@@ -47,6 +50,7 @@ export class AppComponent implements OnInit {
     this.produtos.push({
       nome: produto.nome,
       preco: produto.preco,
+      comprado: this.comprado,
     });
 
     const products = JSON.stringify(this.produtos);
@@ -57,11 +61,18 @@ export class AppComponent implements OnInit {
   removerProduto(index: number): void {
     if (index >= 0 && index < this.produtos.length) {
       this.produtos.splice(index, 1);
-      console.log(this.produtos);
+
       const listaProdutosAtualizada = JSON.stringify(this.produtos);
-      
       localStorage.setItem('products', listaProdutosAtualizada);
-      console.log('removeu', index);
     }
+  }
+
+  public marcarProdutoComoComprado(index: number) {
+    if (index >= 0 && index < this.produtos.length) {
+      this.comprado = !this.comprado;
+    }
+
+    const produtoAtualizado = JSON.stringify(this.produtos);
+    localStorage.setItem('products', produtoAtualizado);
   }
 }

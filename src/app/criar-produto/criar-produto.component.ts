@@ -12,9 +12,11 @@ import { NgForm, Validator } from '@angular/forms';
           class="needs-validation"
           novalidate
         >
-          <div class="mt-4 mb-4 ">
+          <div class="mt-4 mb-4 position-relative">
             <label>Nome do Produto</label>
             <input
+              for="validationTooltip01"
+              id="validationTooltip01"
               required
               type="text"
               class="form-control"
@@ -22,7 +24,7 @@ import { NgForm, Validator } from '@angular/forms';
               placeholder="Digite o nome do produto"
               [(ngModel)]="produto"
             />
-            <div class="valid-tooltip">verifique os campos</div>
+            <div class="invalid-feedback">verifique os campos</div>
 
             <div class="mt-3">
               <label>Preço</label>
@@ -36,9 +38,7 @@ import { NgForm, Validator } from '@angular/forms';
               />
             </div>
           </div>
-          <button class="btn btn-primary btn-sm" type="submit">
-            Salvar produto
-          </button>
+          <button class="btn btn-primary" type="submit">Salvar produto</button>
         </form>
       </div>
     </div>
