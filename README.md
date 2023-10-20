@@ -4,25 +4,22 @@ Angular Wishlist surgiu de um projeto feito no inicío de meus estudos a fins de
 
 Agora com um pouco mais de experiência, resolvi aplicar neste projeto conceitos que aprendi neste ultimo ano de estudos.
 
-Todos nós temos algo que desejamos não é mesmo? E nos casos em que o dinheiro pode comprar, por que não adicionar esses pequenos sonhos em uma lista? 
+Todos nós temos algo que desejamos não é mesmo? E nos casos em que o dinheiro pode comprar, por que não adicionar esses pequenos sonhos em uma lista?
 
 Angular Wishlist tem o proposito de adicionar itens, editar, remover ou registrar quando forem conquistados. Uma simples lista de desejos que lhe permitirá visualizar seus objetivos onde quer que você esteja.
 
-
 ## Screenshots
 
-![versao desktop](src/assets/readme-images/screenshot-desktop.png)
-![versao mobile](src/assets/readme-images/screenshot-mobile.png)
-
+![interface](src/assets/readme-images/screenshot-desktop.png)
+![interface](src/assets/readme-images/screenshot-mobile.png)
 
 ## Stack utilizada
 
 **Front-end:** Angular, Angular Material, Bootstrap
 
-
 ## Rodando localmente
 
-####  Clone o projeto
+#### Clone o projeto
 
 `git clone https://github.com/GiselleBarbosa/angular-wishlist.git`
 
@@ -39,36 +36,29 @@ Angular Wishlist tem o proposito de adicionar itens, editar, remover ou registra
 
 `npm run start`
 
-
 ## Funcionalidades
 
 - Salvamento de suas anotações em Localstorage
 - Crie ou remova produtos
 - Marcar como adquirido
 
-
 ## Atenção
 
 Inicialmente, pelo fato do projeto ainda não possui integração com um banco de dados, seus registros serão salvos em localstora, ou seja, na memória de seu navegador, portanto tenha cuidado ao fazer a limpeza do mesmo pois isso causará a perda de suas anotações.
-
 
 ## Melhorias
 
 Em desenvolvimento - refatoração da estrutura global dos componentes.
 
-
 ## Autoria
 
 - [@GiselleBarbosa](https://www.linkedin.com/in/gisellebarb/)
-
 
 ## Licensa
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-
 ## Referências
 
- - [Angular Material](https://material.angular.io/)
- - [Bootstrap](https://getbootstrap.com/)
-
+- [Angular Material](https://material.angular.io/)
+- [Bootstrap](https://getbootstrap.com/)
