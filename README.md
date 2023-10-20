@@ -10,8 +10,8 @@ Angular Wishlist tem o proposito de adicionar itens, editar, remover ou registra
 
 ## Screenshots
 
-![interface](src/assets/readme-images/screenshot-desktop.png)
-![interface](src/assets/readme-images/screenshot-mobile.png)
+![interface](src/assets/readme-images/screenshot-desktop.png "versao desktop")
+![interface](src/assets/readme-images/screenshot-mobile.png "versao mobile")
 
 ## Stack utilizada
 
