@@ -18,6 +18,10 @@ Angular Wishlist tem o proposito de adicionar itens, editar, remover ou registra
 
 **Front-end:** Angular, Angular Material, Bootstrap
 
+## Deploy
+
+[Angular Wishlist](angular-lista-de-desejos.vercel.app/)
+
 ## Rodando localmente
 
 #### Clone o projeto
