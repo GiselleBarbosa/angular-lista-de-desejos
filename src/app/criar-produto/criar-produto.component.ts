@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NgForm, Validator } from '@angular/forms';
+import { NgForm, Validator, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-criar-produto',
-  template: `
+    selector: 'app-criar-produto',
+    template: `
     <div class="row">
       <div class="col-12 mt-2 d-flex flex-column">
         <form
@@ -43,6 +43,8 @@ import { NgForm, Validator } from '@angular/forms';
       </div>
     </div>
   `,
+    standalone: true,
+    imports: [FormsModule],
 })
 export class CriarProdutoComponent {
   @Output() public produtoCriado = new EventEmitter<{

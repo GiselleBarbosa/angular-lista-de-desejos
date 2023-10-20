@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-detalhe-produto',
-  template: `
+    selector: 'app-detalhe-produto',
+    template: `
     <div class="card mb-3">
       <div class="card-header">
         <input
@@ -41,6 +43,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       </div>
     </div>
   `,
+    standalone: true,
+    imports: [FormsModule, CurrencyPipe],
 })
 export class DetalheProdutoComponent {
   @Input() public produto!: {
