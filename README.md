@@ -1,27 +1,74 @@
-# Lista de Desejos Angular
+# Angular Wishlist
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+Angular Wishlist surgiu de um projeto feito no inicío de meus estudos a fins de melhorar minha compreensão sobre a comunicação dos componentes do Angular (Inputs e Outputs).
 
-## Development server
+Agora com um pouco mais de experiência, resolvi aplicar neste projeto conceitos que aprendi neste ultimo ano de estudos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Todos nós temos algo que desejamos não é mesmo? E nos casos em que o dinheiro pode comprar, por que não adicionar esses pequenos sonhos em uma lista? 
 
-## Code scaffolding
+Angular Wishlist tem o proposito de adicionar itens, editar, remover ou registrar quando forem conquistados. Uma simples lista de desejos que lhe permitirá visualizar seus objetivos onde quer que você esteja.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Screenshots
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![versao desktop](src/assets/readme-images/screenshot-desktop.png)
+![versao mobile](src/assets/readme-images/screenshot-mobile.png)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Stack utilizada
 
-## Running end-to-end tests
+**Front-end:** Angular, Angular Material, Bootstrap
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Rodando localmente
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+####  Clone o projeto
+
+`git clone https://github.com/GiselleBarbosa/angular-wishlist.git`
+
+#### Instale as dependências
+
+`npm install`
+
+#### Inicie o servidor
+
+`http://localhost:4200/`.
+`
+
+#### Execute a aplicação
+
+`npm run start`
+
+
+## Funcionalidades
+
+- Salvamento de suas anotações em Localstorage
+- Crie ou remova produtos
+- Marcar como adquirido
+
+
+## Atenção
+
+Inicialmente, pelo fato do projeto ainda não possui integração com um banco de dados, seus registros serão salvos em localstora, ou seja, na memória de seu navegador, portanto tenha cuidado ao fazer a limpeza do mesmo pois isso causará a perda de suas anotações.
+
+
+## Melhorias
+
+Em desenvolvimento - refatoração da estrutura global dos componentes.
+
+
+## Autoria
+
+- [@GiselleBarbosa](https://www.linkedin.com/in/gisellebarb/)
+
+
+## Licensa
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+
+## Referências
+
+ - [Angular Material](https://material.angular.io/)
+ - [Bootstrap](https://getbootstrap.com/)
+
