@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Produtos } from './shared/productos.interface';
+import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
+import { NgIf, NgFor } from '@angular/common';
+import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
 
 @Component({
-  selector: 'app-root',
-  styleUrls: ['./app.component.scss'],
-  template: `
+    selector: 'app-root',
+    styleUrls: ['./app.component.scss'],
+    template: `
     <div class="container mt-5 mb-5">
       <ng-container>
         <h3>❤️ Lista de Desejos</h3>
@@ -33,6 +36,13 @@ import { Produtos } from './shared/productos.interface';
       </ng-container>
     </div>
   `,
+    standalone: true,
+    imports: [
+        CriarProdutoComponent,
+        NgIf,
+        NgFor,
+        DetalheProdutoComponent,
+    ],
 })
 export class AppComponent implements OnInit {
   public produtos: Produtos[] = [];
