@@ -18,7 +18,7 @@ import { Produtos } from './shared/productos.interface';
   ],
   template: `
     <ng-container>
-      <div class="flex flex-column align-items-center">
+      <div class="flex flex-column align-items-center p-4">
         <ng-container>
           <app-criar-produto (produtoCriado)="CriarProduto($event)" />
         </ng-container>

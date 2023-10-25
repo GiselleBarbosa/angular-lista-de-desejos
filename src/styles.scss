@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
-
 @import 'primeicons/primeicons.css';
 @import 'primeflex/primeflex.css';
 
@@ -14,14 +12,4 @@
   list-style: none;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-}
-
-html {
-  font-size: 1rem;
-
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
 }
