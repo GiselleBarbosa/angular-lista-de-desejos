@@ -1,48 +1,41 @@
 import { Component, OnInit } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 
-import { Produtos } from './shared/productos.interface';
-import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
-import { NgIf, NgFor } from '@angular/common';
 import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
+import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
+import { FooterComponent } from './shared/layout/footer/footer/footer.component';
+import { Produtos } from './shared/productos.interface';
 
 @Component({
-    selector: 'app-root',
-    styleUrls: ['./app.component.scss'],
-    template: `
-    <div class="container mt-5 mb-5">
-      <ng-container>
-        <h3>❤️ Lista de Desejos</h3>
-        <app-criar-produto (produtoCriado)="CriarProduto($event)" />
-        <hr />
-      </ng-container>
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CriarProdutoComponent,
+    NgIf,
+    NgFor,
+    DetalheProdutoComponent,
+    FooterComponent,
+  ],
+  template: `
+    <ng-container>
+      <div class="flex flex-column align-items-center">
+        <ng-container>
+          <app-criar-produto (produtoCriado)="CriarProduto($event)" />
+        </ng-container>
 
-      <ng-container *ngIf="produtos.length > 0">
-        <div class="row">
-          <div class="col-12">
-            <h4>🎁 Produtos salvos</h4>
-            <hr />
-
-            <div class="container-fluid">
-              <ng-container *ngFor="let produto of produtos; let i = index">
-                <app-detalhe-produto
-                  (removerProduto)="removerProduto(i)"
-                  [produto]="produto"
-                  (concluido)="marcarProdutoComoComprado(i)"
-                />
-              </ng-container>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
+        <ng-container *ngIf="produtos.length > 0">
+          <ng-container *ngFor="let produto of produtos; let i = index">
+            <app-detalhe-produto
+              (removerProduto)="removerProduto(i)"
+              [produto]="produto"
+              (concluido)="marcarProdutoComoComprado(i)"
+            />
+          </ng-container>
+        </ng-container>
+        <app-footer />
+      </div>
+    </ng-container>
   `,
-    standalone: true,
-    imports: [
-        CriarProdutoComponent,
-        NgIf,
-        NgFor,
-        DetalheProdutoComponent,
-    ],
 })
 export class AppComponent implements OnInit {
   public produtos: Produtos[] = [];

@@ -1,50 +1,63 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NgForm, Validator, FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-    selector: 'app-criar-produto',
-    template: `
-    <div class="row">
-      <div class="col-12 mt-2 d-flex flex-column">
-        <form
-          #productsForm="ngForm"
-          (ngSubmit)="criarProduto(productsForm)"
-          class="needs-validation"
-          novalidate
-        >
-          <div class="mt-4 mb-4 position-relative">
-            <label>Nome do Produto</label>
-            <input
-              for="validationTooltip01"
-              id="validationTooltip01"
-              required
-              type="text"
-              class="form-control"
-              name="inputNovoProduto"
-              placeholder="Digite o nome do produto"
-              [(ngModel)]="produto"
-            />
-            <div class="invalid-feedback">verifique os campos</div>
+  selector: 'app-criar-produto',
+  standalone: true,
+  imports: [FormsModule, ButtonModule, InputTextModule, CardModule],
+  template: `
+    <h2 class="mb-3">❤️ Lista de Desejos</h2>
+    <p-card>
+      <div class="p-5 mt-4 max-w-min md:max-w-max ">
+        <form #productsForm="ngForm" (ngSubmit)="criarProduto(productsForm)">
+          <label class="flex flex-column gap-2"
+            >Nome do Produto
 
-            <div class="mt-3">
-              <label>Preço</label>
+            <input
+              pInputText
+              for="inputNovoProduto"
+              id="inputNovoProduto"
+              name="inputNovoProduto"
+              type="text"
+              [(ngModel)]="produto"
+              placeholder="Digite o nome"
+              required
+            />
+          </label>
+
+          <div class="mt-3">
+            <label class="flex flex-column gap-2"
+              >Preço
+
               <input
-                required
-                type="number"
-                placeholder="Digite o preço"
-                class="form-control"
-                name="inputDetalhesDoProduto"
+                pInputText
+                for="inputPreco"
+                id="inputPreco"
+                name="inputPreco"
+                type="text"
                 [(ngModel)]="preco"
+                placeholder="Digite o preço"
+                required
               />
-            </div>
+            </label>
           </div>
-          <button class="btn btn-primary" type="submit">Salvar produto</button>
+
+          <div class="flex justify-content-center w-full">
+            <button
+              pButton
+              pRipple
+              label="Salvar"
+              class="p-button-lg mt-4 w-full "
+            ></button>
+          </div>
         </form>
       </div>
-    </div>
+    </p-card>
   `,
-    standalone: true,
-    imports: [FormsModule],
 })
 export class CriarProdutoComponent {
   @Output() public produtoCriado = new EventEmitter<{
