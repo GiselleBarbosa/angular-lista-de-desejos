@@ -10,6 +10,6 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 
 bootstrapApplication(AppComponent, {
-    providers: [importProvidersFrom(BrowserModule, AppRoutingModule, FormsModule), provideAnimations()]
+    providers: [importProvidersFrom(BrowserModule, AppRoutingModule, FormsModule), provideAnimations(), provideAnimations()]
 })
   .catch(err => console.error(err));
