@@ -11,7 +11,7 @@ import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
     template: `
     <div class="container mt-5 mb-5">
       <ng-container>
-        <h3>❤️ Lista de Desejos</h3>
+        <h2>❤️ Lista de Desejos</h2>
         <app-criar-produto (produtoCriado)="CriarProduto($event)" />
         <hr />
       </ng-container>
@@ -19,7 +19,7 @@ import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
       <ng-container *ngIf="produtos.length > 0">
         <div class="row">
           <div class="col-12">
-            <h4>🎁 Produtos salvos</h4>
+            <h3>🎁 Produtos salvos</h3>
             <hr />
 
             <div class="container-fluid">
